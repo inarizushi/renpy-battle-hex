@@ -1,4 +1,11 @@
-*.py[cod]
+#renpy
+tmp
+**/*.rpy[cb]
+**/*.bak
+log.txt
+
+#Python
+**.py[cod]
 
 # C extensions
 *.so
