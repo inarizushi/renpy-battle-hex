@@ -3,6 +3,8 @@ tmp
 **/*.rpy[cb]
 **/*.bak
 log.txt
+errors.txt
+traceback.txt
 
 #Python
 **.py[cod]

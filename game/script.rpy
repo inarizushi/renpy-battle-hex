@@ -27,12 +27,23 @@ label start:
     show lucy happy at right
     
     e vhappy "I like fish"
-    $ renpy.pause(3.0)
+    $ renpy.pause(0.5)
     show eileen happy
     l mad "I hate fish!"
+    l "Let us battle!"
+    call battle
+
     show lucy happy
-    e "Today is a day for eating fish."
-    e "Is the fish monger's store even open? What day was it today?"
+    if _return:
+        "Eileen won"
+        e vhappy "I won the match so I decide that today is a day for eating fish."
+        show eileen happy
+    else:
+           "Lucy won"
+           l "Fish is terrible and you cannot force me to consume it."
+           centered "Bad Ending"
+           return
+    e "Is the fish monger's store even open? What day was it?"
     menu:
         "Today is Sunday.":        
             call fishMonger (False)
@@ -41,13 +52,13 @@ label start:
     if _return:
         "Eileen goes to the fishmonger"
         centered "Good Ending"
-    else: 
+    else:
         "Eileen doesn't go to the fishmonger."
         centered "Bad Ending"
     return
 
 label fishMonger (fishMongerOpen):
-    e "Should I go buy some fish from the fish monger?"
+    e "Should I go buy some fish from the fishmonger?"
     if fishMongerOpen:
         l mad "Do whatever you like, it's not like I care!"
         show lucy happy

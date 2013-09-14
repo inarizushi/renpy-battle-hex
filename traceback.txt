@@ -1,0 +1,90 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 34, in script call
+  File "game/elevation-hex.rpy", line 9, in script
+  File "game/elevation-hex.rpy", line 38, in python
+  File "game/battle-engine/engine.rpy", line 320, in python
+  File "game/battle-engine/engine.rpy", line 646, in python
+  File "game/battle-engine/engine.rpy", line 654, in python
+  File "game/battle-engine/engine-schema.rpy", line 258, in python
+  File "game/battle-engine/engine-schema.rpy", line 239, in python
+  File "game/battle-engine/engine-fighters.rpy", line 638, in python
+  File "game/battle-engine/engine-fighters.rpy", line 585, in python
+  File "game/battle-engine/engine-ui.rpy", line 185, in python
+  File "game/battle-engine/engine-ui.rpy", line 32, in python
+  File "game/battle-engine/engine-display.rpy", line 339, in python
+IOError: Couldn't find file 'gfx/clyde-stand-w.png'.
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "C:\Users\Leah Lee\workspace\renpy-6.15.7-sdk\renpy\execution.py", line 288, in run
+    node.execute()
+  File "C:\Users\Leah Lee\workspace\renpy-6.15.7-sdk\renpy\ast.py", line 718, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Users\Leah Lee\workspace\renpy-6.15.7-sdk\renpy\python.py", line 1297, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "game/elevation-hex.rpy", line 38, in <module>
+    battle.Start()
+  File "game/battle-engine/engine.rpy", line 320, in Start
+    self.RunBattle()
+  File "game/battle-engine/engine.rpy", line 646, in RunBattle
+    self.RunBattleRound()
+  File "game/battle-engine/engine.rpy", line 654, in RunBattleRound
+    self._mechanic.RunBattleRound()
+  File "game/battle-engine/engine-schema.rpy", line 258, in RunBattleRound
+    self.RunFighterTurn(fighter)
+  File "game/battle-engine/engine-schema.rpy", line 239, in RunFighterTurn
+    fighter.Act()
+  File "game/battle-engine/engine-fighters.rpy", line 638, in Act
+    skill = self.PickSkill()
+  File "game/battle-engine/engine-fighters.rpy", line 585, in PickSkill
+    result = self._battle.UI.PickSkill(self, choices)
+  File "game/battle-engine/engine-ui.rpy", line 185, in PickSkill
+    result = self.Interact()
+  File "game/battle-engine/engine-ui.rpy", line 32, in Interact
+    result = ui.interact()
+  File "C:\Users\Leah Lee\workspace\renpy-6.15.7-sdk\renpy\ui.py", line 237, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Users\Leah Lee\workspace\renpy-6.15.7-sdk\renpy\display\core.py", line 1853, in interact
+    repeat, rv = self.interact_core(preloads=preloads, **kwargs)
+  File "C:\Users\Leah Lee\workspace\renpy-6.15.7-sdk\renpy\display\core.py", line 2165, in interact_core
+    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
+  File "C:\Users\Leah Lee\workspace\renpy-6.15.7-sdk\renpy\display\core.py", line 1420, in draw_screen
+    renpy.config.screen_height,
+  File "render.pyx", line 365, in renpy.display.render.render_screen (gen\renpy.display.render.c:4568)
+  File "render.pyx", line 166, in renpy.display.render.render (gen\renpy.display.render.c:2033)
+  File "C:\Users\Leah Lee\workspace\renpy-6.15.7-sdk\renpy\display\layout.py", line 521, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 95, in renpy.display.render.render (gen\renpy.display.render.c:2291)
+  File "render.pyx", line 166, in renpy.display.render.render (gen\renpy.display.render.c:2033)
+  File "C:\Users\Leah Lee\workspace\renpy-6.15.7-sdk\renpy\display\layout.py", line 521, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 95, in renpy.display.render.render (gen\renpy.display.render.c:2291)
+  File "render.pyx", line 166, in renpy.display.render.render (gen\renpy.display.render.c:2033)
+  File "C:\Users\Leah Lee\workspace\renpy-6.15.7-sdk\renpy\display\layout.py", line 521, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 95, in renpy.display.render.render (gen\renpy.display.render.c:2291)
+  File "render.pyx", line 166, in renpy.display.render.render (gen\renpy.display.render.c:2033)
+  File "accelerator.pyx", line 109, in renpy.display.accelerator.transform_render (gen\renpy.display.accelerator.c:1298)
+  File "render.pyx", line 166, in renpy.display.render.render (gen\renpy.display.render.c:2033)
+  File "accelerator.pyx", line 109, in renpy.display.accelerator.transform_render (gen\renpy.display.accelerator.c:1298)
+  File "render.pyx", line 166, in renpy.display.render.render (gen\renpy.display.render.c:2033)
+  File "game/battle-engine/engine-display.rpy", line 339, in render
+    childRender = renpy.render(disp, width, height, st, at)
+  File "render.pyx", line 95, in renpy.display.render.render (gen\renpy.display.render.c:2291)
+  File "render.pyx", line 166, in renpy.display.render.render (gen\renpy.display.render.c:2033)
+  File "C:\Users\Leah Lee\workspace\renpy-6.15.7-sdk\renpy\display\im.py", line 465, in render
+    im = cache.get(self)
+  File "C:\Users\Leah Lee\workspace\renpy-6.15.7-sdk\renpy\display\im.py", line 196, in get
+    surf = image.load()
+  File "C:\Users\Leah Lee\workspace\renpy-6.15.7-sdk\renpy\display\im.py", line 509, in load
+    surf = renpy.display.pgrender.load_image(renpy.loader.load(self.filename), self.filename)
+  File "C:\Users\Leah Lee\workspace\renpy-6.15.7-sdk\renpy\loader.py", line 411, in load
+    raise IOError("Couldn't find file '%s'." % name)
+IOError: Couldn't find file 'gfx/clyde-stand-w.png'.
+
+Windows-post2008Server-6.2.9200
+Ren'Py 6.15.7.374
+A Ren'Py Game 0.0
