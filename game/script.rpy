@@ -27,9 +27,11 @@ label start:
     show lucy happy at right
     
     e vhappy "I like fish"
-    $ renpy.pause(3.0)
+    $ renpy.pause(0.5)
     show eileen happy
     l mad "I hate fish!"
+    l "Let us battle!"
+    call battle
     show lucy happy
     e "Today is a day for eating fish."
     e "Is the fish monger's store even open? What day was it today?"
