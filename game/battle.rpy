@@ -24,18 +24,43 @@ label battle:
         
         battle.SetBattlefield(HexGridBattlefield(fieldSprite, map=demoTileMap, origin=(362, 441), gridSize=(demoTileMap.XSize, demoTileMap.YSize), spaceSize=(75, -40), heightStep=100))
         
+        #Add player team
         battle.AddFaction('Player', playerFaction=True)
         
-        steve = PlayerFighter("Steve", Speed=99, Move=4, Attack=20, Defence=0, Health=1, sprite=GetClydeHexSprite()) 
-        steve.RegisterSkill(Library.Skills.ElevationMove)
-        steve.RegisterSkill(Library.Skills.Win)
+        eileen = PlayerFighter("Eileen", Speed=99, Move=4, Attack=30, Defence=0, Health=10000, sprite=GetClydeHexSprite()) 
+        eileen.RegisterSkill(Library.Skills.ElevationMove)
+        eileen.RegisterSkill(Library.Skills.Win)
+        eileen.RegisterSkill(Library.Skills.Fire1)
+        eileen.RegisterSkill(Library.Skills.Skip)
         
-        battle.AddFighter(steve, x=0, y=4)
         
+        battle.AddFighter(eileen, x=0, y=4)
+        
+        #Add the opposing team
+        battle.AddFaction("lucys", playerFaction=False)
+        
+        lucy = SimpleAIFighter("Lucy", Speed=99, Move=4, Attack=10, Defence=0, Health=50, sprite=GetClydeHexSprite()) 
+        lucy.RegisterSkill(Library.Skills.Fire2, 2)
+        lucy.RegisterSkill(Library.Skills.ElevationMove, 1)
+        battle.AddFighter(lucy, x=1, y=1)
+        
+        #add extra functionality to game
+        battle.AddExtra(RPGActionBob())
+        battle.AddExtra(SimpleWinCondition())
         battle.AddExtra(ActionPanner())
         battle.AddExtra(PanningControls(leftLabel=u'pan left', rightLabel=u'pan right', upLabel=u'pan up', downLabel=u'pan down', distance=250))
+        battle.AddExtra(ActiveDisplay("Player", {"HP": "Health", "Move": "Move", "MP":"MP"}))
+        battle.AddExtra(RPGDeath())
         
+        #START!!
         battle.Start()
         
-    
+        winner = battle.Won
+        
+    if (winner == 'Player'):
+        "Fish wins!"
+        return True
+    else: 
+        "Fish stinks!"
+        return False
     return
