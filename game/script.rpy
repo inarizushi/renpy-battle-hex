@@ -6,6 +6,8 @@ init python hide:
                 name = file.replace('img/', '').replace('/', ' ').replace('.png', '').replace('.jpg', '')
                 renpy.image(name, Image(file))
 
+    
+
 # In the init section you should only define or create static variables
 init:
     # Declare characters used by this game.
@@ -19,17 +21,15 @@ init:
     define e = Character('Eileen', image='eileen', color="#c8ffc8")
     define l = Character('Lucy', image='lucy', color="#c8ff00")
 
-
 # The game starts here.
 label start:
     scene bg cave
     show eileen happy at left
-    show lucy happy at right
     
     e vhappy "I like fish"
-    $ renpy.pause(0.5)
+    show lucy happy at right with moveinright
     show eileen happy
-    l mad "I hate fish!"
+    l mad "I hate fish!" with sshake
     l "Let us battle!"
     call battle
 
@@ -60,7 +60,7 @@ label start:
 label fishMonger (fishMongerOpen):
     e "Should I go buy some fish from the fishmonger?"
     if fishMongerOpen:
-        l mad "Do whatever you like, it's not like I care!"
+        l mad "Do whatever you like, it's not like I care!" with sshake
         show lucy happy
         menu:
             "Yes, I needs some fish":

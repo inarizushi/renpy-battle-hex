@@ -58,9 +58,7 @@ label battle:
         winner = battle.Won
         
     if (winner == 'Player'):
-        "Fish wins!"
         return True
     else: 
-        "Fish stinks!"
         return False
     return
